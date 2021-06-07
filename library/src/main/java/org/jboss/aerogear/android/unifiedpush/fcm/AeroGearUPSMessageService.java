@@ -28,6 +28,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 
 import org.jboss.aerogear.android.core.Provider;
+import org.jboss.aerogear.android.pipe.http.HttpException;
 import org.jboss.aerogear.android.pipe.http.HttpProvider;
 import org.jboss.aerogear.android.pipe.http.HttpRestProvider;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
@@ -192,10 +193,9 @@ public class AeroGearUPSMessageService extends FirebaseMessagingService {
 
                     httpProvider.post(postData.toString());
 
-                } catch (IOException ex) {
+                } catch (HttpException | IOException ex) {
                     Log.e(TAG, ex.getMessage(), ex);
                 }
-
             }
         }
 
