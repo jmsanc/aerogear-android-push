@@ -193,7 +193,7 @@ public class AeroGearUPSMessageService extends FirebaseMessagingService {
 
                     httpProvider.post(postData.toString());
 
-                } catch (HttpException | IOException ex) {
+                } catch (Exception ex) {
                     Log.e(TAG, ex.getMessage(), ex);
                 }
             }
